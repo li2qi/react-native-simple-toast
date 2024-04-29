@@ -6,6 +6,7 @@ const unsupportedPlatform = 'RNSimpleToast: unsupported platform';
 const RCTToast = Platform.select<() => Spec>({
   ios: () => require('./NativeSimpleToast').default,
   android: () => require('react-native').ToastAndroid,
+  harmony: () => require('react-native').ToastAndroid,
   default: () => {
     throw new Error(unsupportedPlatform);
   },
@@ -22,6 +23,7 @@ const constantsSource = Platform.select<
 >({
   ios: () => require('./NativeSimpleToast').default.getConstants(),
   android: () => require('react-native').ToastAndroid,
+  harmony: () => require('react-native').ToastAndroid,
   default: () => {
     throw new Error(unsupportedPlatform);
   },
